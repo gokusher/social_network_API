@@ -69,12 +69,13 @@ ALTER ROLE social_user SET default_transaction_isolation TO 'read committed';
 ALTER ROLE social_user SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE social_db TO social_user;
 \q
-
-5. Выполнить миграции:
+```
+5. Выполнить миграции и собрать статику:
 ```bash
 cd social_network_API
 
 python manage.py migrate
+python manage.py collectstatic
 ```
 6. Запустить проект (в режиме сервера Django):
 ```bash
